@@ -160,7 +160,27 @@ app.post("/register", function (req, res) {
       res.redirect("/campgrounds");
     });
   });
-})
+});
+
+// show login form
+app.get("/login", function (req, res) {
+  res.render("login");
+});
+
+//handling login logic
+app.post("/login", passport.authenticate("local",
+  {
+    successRedirect: "/campgrounds",
+    failureRedirect: "/login"
+  }), function (req, res) {
+
+  })
+
+// logout route
+app.get("/logout", function (req, res) {
+  req.logout();
+  res.redirect("/campgrounds");
+});
 
 
 app.listen(8000, function () {
