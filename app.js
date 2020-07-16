@@ -58,9 +58,13 @@ app.use("/campgrounds/:id/comments", commentRoutes);
 
 
 
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 8000;
+}
+app.listen(port);
 
 
-
-app.listen(8000, function () {
-  console.log("The YelpCamp Server has started");
-});
+// app.listen(8000, function () {
+//   console.log("The YelpCamp Server has started");
+// });
