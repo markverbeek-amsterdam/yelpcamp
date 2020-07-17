@@ -19,10 +19,10 @@ var commentRoutes = require("./routes/comments"),
   indexRoutes = require("./routes/index")
 
 
-//mongoose.connect("mongodb://localhost:27017/yelp_camp", { useNewUrlParser: true, useUnifiedTopology: true })
-mongoose.connect("mongodb+srv://markverbeek:kkMONGOOL3@cluster0.yclok.azure.mongodb.net/yelpcamp?retryWrites=true&w=majority", { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect("mongodb://localhost:27017/yelp_camp", { useNewUrlParser: true, useUnifiedTopology: true })
+// mongoose.connect("mongodb+srv://markverbeek:kkMONGOOL3@cluster0.yclok.azure.mongodb.net/yelpcamp?retryWrites=true&w=majority", { useNewUrlParser: true, useUnifiedTopology: true })
 // mongodb+srv://markverbeek:kkMONGOOL3@cluster0.yclok.azure.mongodb.net/yelpcamp?retryWrites=true&w=majority
-// kkMONGOOL3
+// ploinkploink
 // yelpcamp
 mongoose.set('useFindAndModify', false);
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -66,7 +66,9 @@ let port = process.env.PORT;
 if (port == null || port == "") {
   port = 8000;
 }
-app.listen(port);
+app.listen(port, function () {
+  console.log("The YelpCamp Server has started")
+});
 
 
 // app.listen(8000, function () {
